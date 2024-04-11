@@ -1,0 +1,371 @@
+body, html {
+    margin: 0px !important;
+    padding: 0px !important;
+    background-color: #234;
+  }
+  
+  .whole {
+    position: fixed;
+    background-color: transparent;
+  
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+  
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  .videos-wrapper {
+    position: absolute;
+    background-color: transparent;
+  
+    top:0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+  
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  .board-wrapper{
+    position: absolute;
+    background-color: transparent;
+  
+    top:0%;
+    left: 0%;
+    width: 49%;
+    height: 100%;
+  
+    margin: 5px;
+    padding: 0px;
+  }
+  
+  .code-wrapper{
+    position: absolute;
+    background-color: transparent;
+  
+    top:0%;
+    left: 50%;
+    width: 49%;
+    height: 100%;
+  
+    margin: 5px;
+    padding: 0px;
+  }
+  
+  .videos-wrapper video {
+    position: absolute;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 5px;
+  
+    top:0%;
+    left: 0%;
+    width: 100%;
+    height: auto;
+  
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  .controls-wrapper {
+    position: absolute;
+    background-color: transparent;
+    z-index:2;
+  
+    top: 90%;
+    left: 0%;
+    width: 100%;
+    height: 10%;
+  
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  .progress-bar {
+    position: absolute !important;
+    background-color: transparent !important;
+    cursor: pointer !important;
+  
+    top: 5% !important;
+    left: 1% !important;
+    width: 98% !important;
+    height: 10% !important;
+  
+    margin: 0px !important;
+    padding: 0px !important;
+  }
+  
+  span.thumb {
+    display: none;
+  }
+  
+  .controls-box {
+    position: absolute;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 1px solid white;
+  
+    top: 35%;
+    height: 60%;
+  
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  .controls-box.progress {
+    left: 1%;
+    width: 10%;
+  }
+  
+  .controls-box.pace {
+    left: 12%;
+    width: 10%;
+  }
+  
+  .controls-box.volume {
+    left: 23%;
+    width: 10%;
+  }
+  
+  .controls-box.size {
+    left: 34%;
+    width: 10%;
+  }
+  
+  .controls-box.views {
+    left: 45%;
+    width: 32%;
+  }
+  
+  .controls-box.help {
+    left: 78%;
+    width: 10%;
+  }
+  
+  .controls-box.time {
+    left: 89%;
+    width: 10%;
+  }
+  
+  .control {
+    position: absolute;
+    background-color: transparent;
+    cursor: pointer;
+  
+    top: 5%;
+    height: 90%;
+  
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  div.control{
+    transition:0.1s;
+  }
+  
+  div.control:not(.disabled):not(.selected):hover{
+    transform: translateX(1px) translateY(-1px);
+  }
+  
+  div.control:not(.disabled):not(.selected):active{
+    transform: translateX(2px) translateY(-2px);
+  }
+  
+  div.control.disabled{
+    opacity: 0.5;
+    cursor: default;
+  }
+  
+  div.control.selected i{
+    color:#c6ff00;
+    transform: scale(1.3) translateX(5px) translateY(-7px);
+    cursor: default;
+  }
+  
+  span.control{
+    cursor: default;
+  }
+  
+  .control i{
+    position: absolute;
+    background-color: transparent;
+  
+    top: 10%;
+    left: 5%;
+  
+    color: white;
+  }
+  
+  .control.play {
+    left: 2.5%;
+    width: 30%;
+  }
+  
+  .control.forward {
+    left: 35%;
+    width: 30%;
+  }
+  
+  .control.rewind {
+    left: 67.5%;
+    width: 30%;
+  }
+  
+  .control.onex {
+    left: 2.5%;
+    width: 30%;
+  }
+  
+  .control.onex i{
+    top:30%;
+    left: 0%;
+    width: 100%;
+  }
+  
+  .control.twox {
+    left: 35%;
+    width: 30%;
+  }
+  
+  .control.twox i{
+    top:30%;
+    left: 0%;
+    width: 100%;
+  }
+  
+  .control.threex {
+    left: 67.5%;
+    width: 30%;
+  }
+  
+  .control.threex i{
+    top:30%;
+    left: 0%;
+    width: 100%;
+  }
+  
+  .control.volume {
+    left: 2.5%;
+    width: 30%;
+  }
+  
+  .control.volume-bar {
+    top: 0% !important;
+    left: 35% !important;
+    width: 62.5% !important;
+  }
+  
+  .control.size {
+    left: 2.5%;
+    width: 30%;
+  }
+  
+  .control.size-bar {
+    top: 0% !important;
+    left: 35% !important;
+    width: 62.5% !important;
+  }
+  
+  .control.board {
+    left: 2%;
+    width: 12%;
+  }
+  
+  .control.code {
+    left: 14%;
+    width: 12%;
+  }
+  
+  .control.split {
+    left: 28%;
+    width: 12%;
+  }
+  
+  .control.pip.cb {
+    left: 42%;
+    width: 12%;
+  }
+  
+  .control.pip.bc {
+    left: 56%;
+    width: 12%;
+  }
+  
+  .control.pip.horizontal {
+    left: 70%;
+    width: 12%;
+  }
+  
+  .control.pip.vertical {
+    left: 84%;
+    width: 12%;
+  }
+  
+  .control.text {
+    left: 2%;
+    width: 47%;
+  }
+  
+  .control.text i {
+    top: 25%;
+  }
+  
+  .control.value {
+    left: 51%;
+    width: 47%;
+  }
+  
+  .control.value i {
+    left: 20%;
+  }
+  
+  .control.time {
+    left: 1%;
+    width: 98%;
+  }
+  
+  .control.time i {
+    top: 25%;
+  }
+  
+  .overlay {
+    position: fixed;
+    background-color: #000;
+    opacity: 0.6;
+  
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+  
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  .loader {
+    position: fixed;
+    background-color: transparent;
+    color: white;
+  
+    top: 45%;
+    left: 45%;
+    width: 10%;
+    height: 10%;
+  
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  input[type=range]{
+    margin: 0px !important;
+    border: none !important;
+  }
+  
+  #modalHelp{
+    max-height: 400px !important;
+  }
+  

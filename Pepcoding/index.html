@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PepCoding - For programming excellence and peace</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/tool.css">
+
+</head>
+<body>
+    <div class="whole">
+        <div class="videos-wrapper">
+            <div id="boardWrapper" class="board-wrapper">
+                <video id="board" muted>
+                    <source src="https://youtu.be/nEqraOU1rog?si=AXs7nT0ieTtjUEK2" type="video/mp4">
+                </video>
+            </div>
+            <div id="codeWrapper" class="code-wrapper">
+                <video id="code" muted>
+                    <source src="https://youtu.be/GpcQn16Ai3w?si=NimIrOcb29_f3hxL" type="video/mp4">
+                </video>
+            </div>
+            <audio id="audio">
+                <source src="/web/20180629092643im_/http://pepcoding.com/PepTool/?path=1recursion/1lect1/1pd" type="audio/mp4"/>
+            </audio>
+        </div>
+        <div class="controls-wrapper">
+            <input id="progressBar" class="progress-bar" type="range" min="0" max="100" value="0"/>
+            <div class="controls-box progress">
+                <div id="btnPlay" class="control play"><i class="far fa-play-circle fa-2x"></i></div>
+                <div id="btnFwd" class="control forward"><i class="far fa-arrow-alt-circle-right fa-2x"></i></div>
+                <div id="btnRewind" class="control rewind"><i class="far fa-arrow-alt-circle-left fa-2x"></i></div>
+            </div>
+            <div class="controls-box pace">
+                <div id="btnOnex" class="control onex selected"><i class="fas fa-fighter-jet fa-sm"></i></div>
+                <div id="btnTwox" class="control twox"><i class="fas fa-fighter-jet fa-md"></i></div>
+                <div id="btnThreex" class="control threex"><i class="fas fa-fighter-jet fa-lg"></i></div>
+            </div>
+            <div class="controls-box volume">
+                <div id="btnVolume" class="control volume"><i class="fas fa-volume-down fa-2x"></i></div>
+                <input id="volumeBar" class="control volume-bar" type="range" min="0" max="1" value="1" step="0.01"/>
+            </div>
+            <div class="controls-box size">
+                <div id="btnFullScreen" class="control size"><i class="fas fa-expand fa-2x"></i></div>
+                <input id="sizeBar" class="control size-bar" type="range" min="0" max="1" value="0.5" step="0.01"/>
+            </div>
+            <div class="controls-box views">
+                <div id="btnBoardView" class="control board"><i class="far fa-address-card fa-2x"></i></div>
+                <div id="btnCodeView" class="control code"><i class="fas fa-laptop fa-2x"></i></div>
+                <div id="btnSplitView" class="control split selected"><i class="fas fa-columns fa-2x"></i></div>
+                <div id="btnPipCBView" class="control pip cb"><i class="far fa-images fa-2x"></i></div>
+                <div id="btnPipBCView" class="control pip bc"><i class="fas fa-images fa-2x"></i></div>
+                <div id="btnPipHorizontal" class="control pip horizontal disabled"><i class="far fa-arrow-alt-circle-right fa-2x"></i></div>
+                <div id="btnPipVertical" class="control pip vertical disabled"><i class="far fa-arrow-alt-circle-down fa-2x"></i></div>
+            </div>
+            <div class="controls-box help">
+                <span class="control text"><i class="fas fa-lg">Help</i></span>
+                <div id="btnHelp" class="control value"><i class="far fa-question-circle fa-2x"></i></div>
+            </div>
+            <div class="controls-box time">
+                <span id="spanTime" class="control time"><i class="fas fa-lg"></i></span>
+            </div>
+        </div>
+    </div>
+    <div id="divOverlay" class="overlay"></div>
+    <div id="divLoader" class="loader"><i class="fas fa-spinner fa-3x"></i></div>
+    <div id="modalHelp" class="modal bottom-sheet teal accent-4">
+        <div class="modal-content">
+            <h3>Keyboard Shortcuts</h3>
+            <table class="bordered striped responsive-table teal accent-1 z-depth-2">
+                <tr class="teal darken-4 white-text">
+                    <th>Operation</th>
+                    <th>Icon</th>
+                    <th>Keyboard Shortcut</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Play/Pause</td>
+                    <td><i class="far fa-play-circle fa-2x"></i> <i class="far fa-pause-circle fa-2x"></i></td>
+                    <td><b>Spacebar</b></td>
+                    <td>To play or pause the video.</td>
+                </tr>
+                <tr>
+                    <td>Forward</td>
+                    <td><i class="far fa-arrow-alt-circle-right fa-2x"></i></td>
+                    <td><b>P</b></td>
+                    <td>Forward video by 5 seconds.</td>
+                </tr>
+                <tr>
+                    <td>Rewind</td>
+                    <td><i class="far fa-arrow-alt-circle-left fa-2x"></i></td>
+                    <td><b>p</b></td>
+                    <td>Rewind video by 5 seconds.</td>
+                </tr>
+                <tr>
+                    <td>Playback Rate</td>
+                    <td>
+                        <i class="fas fa-fighter-jet fa-sm"></i>
+                        <i class="fas fa-fighter-jet fa-md"></i>
+                        <i class="fas fa-fighter-jet fa-lg"></i>
+                    </td>
+                    <td><b>*</b></td>
+                    <td>Increase playback rate of the video [1, 1.5 or 2 times the original].</td>
+                </tr>
+                <tr>
+                    <td>Volume +</td>
+                    <td>Volume slider</td>
+                    <td><b>V</b></td>
+                    <td>Increase the volume of video.</td>
+                </tr>
+                <tr>
+                    <td>Volume -</td>
+                    <td>Volume slider</td>
+                    <td><b>v</b></td>
+                    <td>Decrease the volume of video.</td>
+                </tr>
+                <tr>
+                    <td>Fullscreen</td>
+                    <td><i class="fas fa-expand fa-2x"></i> <i class="fas fa-compress fa-2x"></i></td>
+                    <td><b>f</b></td>
+                    <td>Toggles full-screen mode.</td>
+                </tr>
+                <tr>
+                    <td>Size +</td>
+                    <td>Size bar</td>
+                    <td><b>S</b></td>
+                    <td>
+                        Relevant only in split or pip view. Increases size of code screen
+                        in split view, and inner picture in pip view.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Size -</td>
+                    <td>Size bar</td>
+                    <td><b>s</b></td>
+                    <td>
+                        Relevant only in split or pip view. Decreases size of code screen
+                        in split view, and inner picture in pip view.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Board-only view</td>
+                    <td><i class="far fa-address-card fa-2x"></i></td>
+                    <td><b>c and C</b></td>
+                    <td>Brings in full view with board only.</td>
+                </tr>
+                <tr>
+                    <td>Code-only view</td>
+                    <td><i class="fas fa-laptop fa-2x"></i></td>
+                    <td><b>c and C</b></td>
+                    <td>Brings in full view with code only.</td>
+                </tr>
+                <tr>
+                    <td>Split view</td>
+                    <td><i class="fas fa-columns fa-2x"></i></td>
+                    <td><b>c and C</b></td>
+                    <td>Brings in split view with shared focus on board and code.</td>
+                </tr>
+                <tr>
+                    <td>Pip Code-First view</td>
+                    <td><i class="far fa-images fa-2x"></i></td>
+                    <td><b>c and C</b></td>
+                    <td>Brings in picture-in-picture view with focus on code.</td>
+                </tr>
+                <tr>
+                    <td>Pip Board-First view</td>
+                    <td><i class="fas fa-images fa-2x"></i></td>
+                    <td><b>c and C</b></td>
+                    <td>Brings in picture-in-picture view with focus on board.</td>
+                </tr>
+                <tr>
+                    <td>Direction</td>
+                    <td>
+                        <i class="far fa-arrow-alt-circle-right fa-2x"></i>
+                        <i class="far fa-arrow-alt-circle-left fa-2x"></i>
+                        <i class="far fa-arrow-alt-circle-up fa-2x"></i>
+                        <i class="far fa-arrow-alt-circle-down fa-2x"></i>
+                    </td>
+                    <td><b>d</b></td>
+                    <td>Changes location of inner picture in pip views.</td>
+                </tr>
+                <tr>
+                    <td>Help</td>
+                    <td><i class="far fa-question-circle fa-2x"></i></td>
+                    <td><b>h</b></td>
+                    <td>Opens up the help menu.</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/tool.js"></script>
+
+</body>
+</html>
